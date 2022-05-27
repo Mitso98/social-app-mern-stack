@@ -3,17 +3,18 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "authot": "Mostafa",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Mostafa9898/mern-social-app.git"
+    "url": "git+https://github.com/Mostafa9898/social-app-mern-stack.git"
   },
-  "author": "Mostafa",
-  "license": "MIT",
+  "author": "",
+  "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Mostafa9898/mern-social-app/issues"
+    "url": "https://github.com/Mostafa9898/social-app-mern-stack/issues"
   },
-  "homepage": "https://github.com/Mostafa9898/mern-social-app#readme"
+  "homepage": "https://github.com/Mostafa9898/social-app-mern-stack#readme"
 }
