@@ -9,6 +9,7 @@ const postSchema = mongoose.Schema({
     type: Number,
     default: 0,
   },
+  image: String,
   createdAt: {
     type: Date,
     default: new Date(),
