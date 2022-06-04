@@ -6,9 +6,9 @@
   "authot": "Mostafa",
   "scripts": {
     "start": "node backend/index.js",
-    "server": "nodemon ./backend/index.js",
-    "client": "npm start --prefix client",
-    "dev": "concurrently \"npm run backend\" \"npm run client\""
+    "server": "nodemon ./backEnd/index.js",
+    "client": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "repository": {
     "type": "git",
@@ -23,5 +23,8 @@
   "devDependencies": {
     "concurrently": "^7.2.1",
     "nodemon": "^2.0.16"
+  },
+  "dependencies": {
+    "sass": "^1.52.1"
   }
 }

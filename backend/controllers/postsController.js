@@ -17,7 +17,6 @@ export const getPosts = asyncHandler(async (req, res) => {
 //@access public
 export const createPost = asyncHandler(async (req, res) => {
   if (
-    !req.body.image ||
     !req.body.title ||
     !req.body.creator ||
     !req.body.message ||

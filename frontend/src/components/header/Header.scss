@@ -6,14 +6,42 @@
     justify-content: center;
     border-radius: 5px;
     height: 65px;
+    position: sticky;
+    top: 0;
+    background-color: white;
 
-    .header-title {
-        font-size: 32px;
-        color: rgb(65, 226, 226);
+
+    .header-icons {
+        margin-right: auto;
+        margin-left: 20px;
+        display: flex;
+        align-items: center;
+
+        .post-icon {
+            font-size: 32px;
+            color: rgb(65, 226, 226);
+            cursor: pointer;
+            background-color: rgba(0, 0, 0, 0.3);
+            border-radius: 3px;
+
+            &:hover {
+                background-color: rgba(0, 0, 0, 0.1);
+            }
+        }
     }
 
-    img {
-        width: 32px;
-        height: 32px;
+    .header-brand {
+        margin-right: auto;
+
+        .header-title {
+            font-size: 32px;
+            color: rgb(65, 226, 226);
+        }
+
+        img {
+            width: 32px;
+            height: 32px;
+        }
     }
+
 }

@@ -1,0 +1,12 @@
+.home-focused-image {
+    cursor: pointer;
+
+    [id=root] & {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba($color: black, $alpha: 0.8);
+    }
+
+}

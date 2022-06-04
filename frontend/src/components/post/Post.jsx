@@ -1,41 +1,74 @@
 import "./Post.scss";
 
+import { BsThreeDotsVertical } from "react-icons/bs";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  setObj,
+  toggleSideMenu,
+  toggleFocus,
+  setOpenedUi,
+} from "../../features/UI/uiSlice";
 
-import { useState } from "react";
-/*
-  const visible = useState()
-
-  onClick image visible => true;
-
-  if (true) => another view with the desired image in the full page 
-    will also include X button to set visible false so we can return back to normal view. 
-
-*/
 
 const Post = ({ elm }) => {
-  const [visible, setVisible] = useState(false);
-  const [img, setImg] = useState("");
-
-  if (visible) {
-    return <img src={img} onClick={() => setVisible(!visible)} />;
-  }
+  const dispatch = useDispatch();
+  const { sideMenu, openedUI } = useSelector((state) => state.ui);
 
   return (
-    <div className="post-card-wrapper">
+    <>
+      {sideMenu && openedUI == elm._id ? (
+        <div className="post-options-menu">
+          <ul className="post-options-ul">
+            <li className="post-options-li">Delete</li>
+            <li className="post-options-li">Edit</li>
+          </ul>
+        </div>
+      ) : (
+        <div></div>
+      )}
+      <div className="post-card-wrapper">
+        <div className="post-head">
+          <span className="post-title">{elm.title}</span>
+          <BsThreeDotsVertical
+            id={elm._id}
+            className="post-icon"
+            onClick={() => {
+              if (sideMenu && elm._id != openedUI) {
+                /*
+                  menu X lready opened but we want to open menu Y
+                  Result: menu X will be closed then Y will Open
+                */
+                dispatch(toggleSideMenu(false));
+                dispatch(setOpenedUi(elm._id));
+                dispatch(toggleSideMenu(true));
+              } else {
 
-      <p className="post-title">{elm.title}</p>
-      <img
-        onClick={() => {
-          setVisible(!visible);
-          setImg(elm.image);
-        }}
-        className="post-image"
-        src={elm.image}
-        alt="post-image"
-      />
-      <p className="post-tags">{elm.tags.map((tag) => `#${tag}`)}</p>
-      <p className="post-message">{elm.message}</p>
-    </div>
+                dispatch(toggleSideMenu(!sideMenu));
+                openedUI == "" // if we clicked same menu we need to clear openedUI no worries with sideMenu as ! will do the job with boolean value
+                  ? dispatch(setOpenedUi(elm._id))
+                  : dispatch(setOpenedUi(""));
+              }
+            }}
+          />
+        </div>
+
+        {elm.image ? (
+          <img
+            onClick={() => {
+              dispatch(toggleFocus());
+              dispatch(setObj(elm.image));
+            }}
+            className="post-image"
+            src={elm.image}
+            alt="post-image"
+          />
+        ) : (
+          <div className="post-image-filler"></div>
+        )}
+        <p className="post-tags">{elm.tags.map((tag) => `#${tag}`)}</p>
+        <p className="post-message">{elm.message}</p>
+      </div>
+    </>
   );
 };
 export default Post;

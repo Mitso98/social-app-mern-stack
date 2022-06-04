@@ -1,7 +1,7 @@
 import "./Form.scss";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { createPost } from "../../features/postSlice";
+import { createPost } from "../../features/post/postSlice";
 
 const Form = () => {
   const [creator, setCreator] = useState("");

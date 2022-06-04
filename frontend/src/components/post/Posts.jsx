@@ -1,7 +1,7 @@
-
+import "./Posts.scss";
 import Post from "./Post";
 import { useDispatch, useSelector } from "react-redux";
-import { getPosts } from "../../features/postSlice";
+import { getPosts } from "../../features/post/postSlice";
 import { useEffect } from "react";
 
 // createdAt: "2022-05-28T16:32:23.122Z"
@@ -14,7 +14,6 @@ import { useEffect } from "react";
 
 const Posts = () => {
   const { posts, getPostsAtt } = useSelector((state) => state.posts);
-  console.log(posts);
   const dispatch = useDispatch();
 
   useEffect(() => {
